@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([11412395.387112, 233913.261277, 11413542.368284, 234429.046571], map.getSize());
+map.getView().fit([11412440.929592, 233903.208749, 11413431.735053, 234348.763363], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -448,6 +448,17 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 
 //layer search
 
+var searchLayer = new SearchLayer({
+    layer: lyr_MERGE_ALL_PA_1,
+    colName: 'NO LOT',
+    zoom: 10,
+    collapsed: true,
+    map: map
+});
+map.addControl(searchLayer);
+document.getElementsByClassName('search-layer')[0].getElementsByTagName('button')[0].className += ' fa fa-binoculars';
+document.getElementsByClassName('search-layer-input-search')[0].placeholder = 'Search feature ...';
+    
 
 //scalebar
 
